@@ -51,9 +51,7 @@ RUN mkdir /home/$USERNAME/catkin_ws
 RUN mkdir /home/$USERNAME/catkin_ws/src/
 ADD turtlebot3_simulation-master /home/$USERNAME/catkin_ws/src/
 WORKDIR /home/$USERNAME/catkin_ws
-# RUN /bin/bash -c 'catkin_make' 
-
-
+RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; catkin_make'
 # add catkin env
 RUN echo 'source /opt/ros/kinetic/setup.bash' >> /home/$USERNAME/.bashrc
 RUN echo 'source /home/$USERNAME/catkin_ws/devel/setup.bash' >> /home/$USERNAME/.bashrc
